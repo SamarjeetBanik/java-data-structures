@@ -94,6 +94,11 @@ public class SinglyLinkedList
 		// count no. of nodes in the SLL
 		count();
 		
+		// reversing a SLL
+		reverse_SLL();
+		// SLL display
+		display();
+		
 		// search a particular node/data/key from the SLL
 		search_key_SLL();
 		
@@ -276,6 +281,23 @@ public class SinglyLinkedList
 					temp2.data = temp;
 				}
 			}
+		}
+	}
+	static void reverse_SLL()
+	{
+		if(start == null)
+			System.out.println("LL is empty");
+		else if(start.next == null)
+			System.out.println("Reverse is same as the original.");
+		else {
+			node trav = start, rev = null, temp = null;
+			while(trav != null) {
+				temp = trav.next;
+				trav.next = rev;
+				rev = trav;
+				trav = temp;
+			}
+			start = rev;
 		}
 	}
 }
