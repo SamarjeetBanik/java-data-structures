@@ -96,6 +96,7 @@ public class SinglyLinkedList
 		
 		// reversing a SLL
 		reverse_SLL();
+		System.out.println("In Reversed order:");
 		// SLL display
 		display();
 		
