@@ -72,6 +72,42 @@ public class SinglyLinkedList
 		display();
 		// count no. of nodes in the SLL
 		count();
+		
+		// insert a node in the beginning of the SLL
+		insert_at_begin();
+		// SLL display
+		display();
+		// count no. of nodes in the SLL
+		count();
+				
+		// insert a node in the end of the SLL
+		insert_at_end();
+		// SLL display
+		display();
+		// count no. of nodes in the SLL
+		count();
+				
+		// insert a node in the end of the SLL
+		insert_any_pos();
+		// SLL display
+		display();
+		// count no. of nodes in the SLL
+		count();
+		
+		// search a particular node/data/key from the SLL
+		search_key_SLL();
+		
+		// sort the SLL in ascending order
+		sortA_SLL();
+		System.out.println("In Ascending order:");
+		// SLL display
+		display();
+		
+		// sort the SLL in descending order
+		sortD_SLL();
+		System.out.println("In Descending order:");
+		// SLL display
+		display();
 	}
 	static void insert_at_begin()
 	{
@@ -187,6 +223,58 @@ public class SinglyLinkedList
 				temp.next = trav.next;
 				trav.next = null;
 				System.out.println("Deleted node at position " + pos + " is " + trav.data);
+			}
+		}
+	}
+	static void search_key_SLL()
+	{
+		System.out.print("Enter the data/key to be searched from the SLL: ");
+		int key = sc.nextInt();
+		node trav = start;
+		int flag = 0, count = 0;
+		while(trav != null)
+		{
+			count++;
+			if(trav.data == key) {
+				flag = 1;
+				break;
+			}
+			trav = trav.next;
+		}
+		if(flag == 1)
+			System.out.println("Key found successfully at position " + count);
+		else
+			System.out.println("Key noy found in the SLL.");
+	}
+	static void sortA_SLL()
+	{
+		node temp1 = null, temp2 = null;
+		for(temp1 = start; temp1.next != null; temp1 = temp1.next)
+		{
+			for(temp2 = temp1.next; temp2 != null; temp2 = temp2.next)
+			{
+				if(temp1.data > temp2.data)
+				{
+					int temp = temp1.data;
+					temp1.data = temp2.data;
+					temp2.data = temp;
+				}
+			}
+		}
+	}
+	static void sortD_SLL()
+	{
+		node temp1 = null, temp2 = null;
+		for(temp1 = start; temp1.next != null; temp1 = temp1.next)
+		{
+			for(temp2 = temp1.next; temp2 != null; temp2 = temp2.next)
+			{
+				if(temp1.data < temp2.data)
+				{
+					int temp = temp1.data;
+					temp1.data = temp2.data;
+					temp2.data = temp;
+				}
 			}
 		}
 	}
